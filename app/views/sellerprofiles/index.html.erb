@@ -1,0 +1,5 @@
+<% if current_user.sellerprofile.name.nil? %>
+	<%= render partial: "form", object: @profile %>
+<%else%>
+	<%= render partial: "show" %>
+<%end%>

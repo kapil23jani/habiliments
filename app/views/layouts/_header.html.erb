@@ -1,0 +1,153 @@
+<% if current_user.present? %>
+	<% if current_user.role == "Customer" %>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <%= link_to "Habiliment Store", welcomes_path, :class => "navbar-brand" %>
+		    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		        <li class="nav-item <%= 'active' if params[:controller] == 'welcomes' %>">
+		          <%= link_to "Home", welcomes_path, :class => "nav-link" %>
+		        </li>
+		          <li class="nav-item <%= 'active' if params[:controller] == 'club' %>">
+		            <%= link_to "Profile", "#", class: "nav-link"  %></li>
+		          <li class="nav-item <%= 'active' if params[:controller] == 'guest_user' %>">
+		            <%= link_to "Addresses", "#", class: "nav-link"  %></li>
+		          <li class = "nav-item" ></li>
+		      </ul>
+		      <ul class="navbar-nav">
+		        <% if current_user.present? %>
+		          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
+		        <%else%>
+		          <li><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
+		        <%end%>
+		      </ul>
+		    </div>
+		</nav>
+	<%elsif current_user.role == "Seller"%> 
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <%= link_to "Habiliment Store", welcomes_path, :class => "navbar-brand" %>
+		    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		        <li class="nav-item <%= 'active' if params[:controller] == 'welcomes' %>">
+		          <%= link_to "Home", welcomes_path, :class => "nav-link" %>
+		        </li>
+		          <li class="nav-item <%= 'active' if params[:controller] == 'club' %>">
+		          	<%= link_to "Profile", user_sellerprofiles_path(current_user), :class => "nav-link" %>
+		        	</li>
+		          <li class="nav-item <%= 'active' if params[:controller] == 'guest_user' %>">
+		            <%= link_to "Categories", user_categories_path(current_user), class: "nav-link"  %></li>
+		          <li class = "nav-item" ></li>
+		      </ul>
+		      <ul class="navbar-nav">
+		        <% if current_user.present? %>
+		          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
+		        <%else%>
+		          <li><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
+		        <%end%>
+		      </ul>
+		    </div>
+		</nav>
+	<%elsif current_user.role.nil?%> 
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <%= link_to "Habiliment Store", welcomes_path, :class => "navbar-brand" %>
+		    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		        <li class="nav-item <%= 'active' if params[:controller] == 'welcomes' %>">
+		          <%= link_to "Home", welcomes_path, :class => "nav-link" %>
+		        </li>
+		          <li class="nav-item <%= 'active' if params[:controller] == 'club' %>">
+		            <%= link_to "Sellers", "#", class: "nav-link"  %></li>
+		          <li class="nav-item <%= 'active' if params[:controller] == 'guest_user' %>">
+		            <%= link_to "Customers", "#", class: "nav-link"  %></li>
+		          <li class = "nav-item" ></li>
+		      </ul>
+		      <ul class="navbar-nav">
+		        <% if current_user.present? %>
+		          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
+		        <%else%>
+		          <li><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
+		        <%end%>
+		      </ul>
+		    </div>
+		</nav>
+	<%end%>
+<%else%>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+	  <%= link_to "Habiliment Store", welcomes_path, :class => "navbar-brand" %>
+	    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+	      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	        <li class="nav-item <%= 'active' if params[:controller] == 'welcomes' %>">
+	          <%= link_to "Home", welcomes_path, :class => "nav-link" %>
+	        </li>
+	      </ul>
+	      <ul class="navbar-nav">
+	        <% if current_user.present? %>
+	          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
+	        <%else%>
+	        	<li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Registration
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <%= link_to "Customer", new_user_registration_path(role: "Customer"), class: "dropdown-item" %>
+			          <%= link_to "Seller", new_user_registration_path(role: "Seller"), class: "dropdown-item" %>
+			        </div>
+			      </li>
+	          <li><%= link_to 'Login', new_user_session_path, :class => "nav-link", data: {toggle: "modal", target: "#exampleModal"} %></li>
+	        <%end%>
+	      </ul>
+	    </div>
+	</nav>
+<%end%>
+
+
+
+<!-- Login Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				  <div class="field">
+				    <%= f.label :email %><br />
+				    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+				  </div>
+
+				  <div class="field">
+				    <%= f.label :password %><br />
+				    <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+				  </div>
+
+				  <% if devise_mapping.rememberable? %>
+				    <div class="field"><br>
+				      <%= f.check_box :remember_me %>
+				      <%= f.label :remember_me %>
+				    </div>
+				  <% end %>
+			</div>
+      <div class="modal-footer">
+         <div class="actions">
+				    <%= f.submit "Log in", class: "btn btn-success" %>
+				  </div>
+				<% end %>
+      </div>
+    </div>
+  </div>
+</div>

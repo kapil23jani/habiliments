@@ -15,7 +15,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -26,7 +25,18 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+#gem for handing the devise
+gem 'devise'
+#for creating the json object
+gem 'jbuilder', '~> 2.5'
+#for jqyery operation in system
+gem 'jquery-rails'
+#for implementing designs 
+gem 'bootstrap'
+#for client side validations
+gem 'jquery-validation-rails'
+#for the nested form
+gem "nested_form"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -48,6 +58,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
+  gem 'letter_opener'
 end
 
 group :test do

@@ -1,0 +1,53 @@
+<br><div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="personal_details">
+				<h3>Personal Details</h3>
+				<b><p>Name</p></b>
+				<p><%= current_user.sellerprofile.name %></p>
+				<b><p>Email</p></b>
+				<p><%= current_user.email %></p>
+				<b><p>Contact Number</p></b>
+				<p><%= current_user.sellerprofile.contact_no %></p>
+				<b><p>Phone Number</p></b>
+				<p><%= current_user.sellerprofile.phone_no %></p>
+				<b><p>Fax Number</p></b>
+				<p><%= current_user.sellerprofile.fax_no %></p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="account_details">
+				<h3>Account Details</h3>
+				<b><p>Trade Licence</p></b>
+				<p><%= current_user.sellerprofile.trade_licence %></p>
+				<b><p>Gst No</p></b>
+				<p><%= current_user.sellerprofile.gst_no %></p>
+				<b><p>Sales Tax Number</p></b>
+				<p><%= current_user.sellerprofile.sales_tax %></p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<%= link_to "Update Profile", edit_user_sellerprofile_path(current_user, current_user.sellerprofile), class: "btn btn-secondary" %>
+		</div>
+	</div><br>
+	<div class="row"> 
+		<div class="col-sm-6">
+			<div class="address_details">
+				<h3>Address Details</h3>
+				<b><p>Street </p></b>
+				<p><%= current_user.sellerprofile.street1 %></p>
+				<b><p>Landmark</p></b>
+				<p><%= current_user.sellerprofile.landmark %></p>
+				<b><p>City</p></b>
+				<p><%= current_user.sellerprofile.city %></p>
+				<b><p>State </p></b>
+				<p><%= current_user.sellerprofile.state %></p>
+				<b><p>Country</p></b>
+				<p><%= current_user.sellerprofile.country %></p>
+				<b><p>Zipcode</p></b>
+				<p><%= current_user.sellerprofile.zipcode %></p>
+			</div>
+		</div>
+	</div>
+</div>
+

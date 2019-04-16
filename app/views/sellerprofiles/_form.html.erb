@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div id="form">
+                <%= form_for ([current_user, @profile ])do |form| %>
+                    <%= form.label :name %> *
+                    <%= form.text_field :name, class: " form-control"%>
+                    <%= form.label :contact_no %> *
+                    <%= form.text_field :contact_no, class: " form-control"%>
+                    <%= form.label :phone_no %> *
+                    <%= form.text_field :phone_no, class: " form-control"%>
+                    <%= form.label :fax_no %> *
+                    <%= form.text_field :fax_no, class: " form-control"%>
+                    <%= form.label :street1 %>
+                    <%= form.text_field :street1, class: " form-control" %>
+                    <%= form.label :landmark %>
+                    <%= form.text_field :landmark, class: " form-control" %>
+                    <%= form.label :city %>
+                    <%= form.text_field :city, class: " form-control" %>
+                    <%= form.label :state %>
+                    <%= form.text_field :state , class: " form-control"%>
+                    <%= form.label :country %>
+                    <%= form.text_field :country, class: " form-control" %>
+                    <%= form.label :zipcode %>
+                    <%= form.text_field :zipcode, class: " form-control" %>
+                    <%= form.label :trade_licence %>  *
+                    <%= form.text_field :trade_licence, class: " form-control" %>
+                    <%= form.label :gst_no %>  *
+                    <%= form.text_field :gst_no, class: " form-control" %>
+                    <%= form.label :sales_tax %>  *
+                    <%= form.text_field :sales_tax, class: " form-control" %><br>
+                    <%= form.submit class: "btn btn-success" %>
+                <%end%>
+                <script type="text/javascript">
+                  <%= render "validate.js" %>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
