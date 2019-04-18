@@ -18,6 +18,36 @@ class CategoriesController < ApplicationController
       end
     end
 
+    def show
+      @category = Category.find_by_id(params[:id])
+      @sub_categories = @category.sub_categories.all
+    end
+
+    def edit
+      @category = Category.find_by_id(params[:id])
+    end
+
+    def update
+      @category = Category.find_by_id(params[:id])
+      if @category.update(category_params)
+        redirect_to user_list_path(current_user)
+      else
+        render 'edit'
+      end
+    end
+
+    def destroy
+      @category = Category.find_by_id(params[:id])
+      if @category.destroy
+        redirect_to user_list_path(current_user)
+      end
+
+    end
+
+    def list
+      @categories = current_user.categories
+    end
+            
     private
     def category_params
       params.require(:category).permit(:name, :category_pic)

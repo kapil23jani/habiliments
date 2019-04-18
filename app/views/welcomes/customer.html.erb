@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2">
+			<table class="table">
+				<tr>
+					<th>Customer Email</th>
+				</tr>
+				<% @customers.each do |customer| %>
+				<tr>
+					<td><%= customer.email %></td>
+				</tr>
+				<%end%>
+			</table>
+		</div>
+	</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Back", welcomes_index_path, class: "btn btn-warning" %>

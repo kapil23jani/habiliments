@@ -1,8 +1,14 @@
-<%= form_for ([current_user, @category]) do  |form| %>
-	<%= form.label :name %>
-	<%= form.text_field :name %>
-	<%= form.label :category_pic %>
-	<%= form.file_field :category_pic %>
-	<%= form.submit %>
-<%end%>
-	
+<div class="container"><br>
+	<div class="row">
+		<div class="col-sm-4">
+			<%= form_for ([current_user, @category]) do  |form| %>
+				<%= form.label :name %>
+				<%= form.text_field :name, class: "form-control" %><br>
+				<%= form.label :category_pic %>
+				<%= form.file_field :category_pic, class: "form-control" %><br>
+				<%= form.submit class: "btn btn-success" %>
+				<%= link_to "Back", user_categories_path(current_user), class: "btn btn-warning" %>
+			<%end%>
+		</div>
+	</div>
+</div>

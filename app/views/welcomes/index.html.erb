@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<% @categories.each do |category| %>
+			<div col-sm-4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="card" style="width: 22rem;">
+				  <%= image_tag(category.category_pic,  width: "350", height: "250")%>
+				  <div class="card-body">
+				    <center><b><p class="card-text"><%= category.name%></p></b></center>
+				  </div>
+				</div>
+			</div>
+		<%end%>
+	</div>
+</div>

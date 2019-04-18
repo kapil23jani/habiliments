@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<%= form_for :product, html: {id: "product_for"}, method: :update do |form|%>
+				<%= form.label :product_name %>
+				<%= form.text_field :product_name, class: "form-control" %><br>
+				<%= form.label :brand_name %>
+				<%= form.text_field :brand_name, class: "form-control" %><br>
+				<%= form.label :material %>
+				<%= form.text_field :material, class: "form-control" %><br>
+				<%= form.label :description %>
+				<%= form.text_field :description, class: "form-control" %><br>
+				<%= form.label :colour %>
+				<%= form.text_field :colour, class: "form-control" %><br>
+				<%= form.label :cover_pic %>
+				<%= form.file_field :product_cover_pic, class: "form-control" %><br>
+				<%= form.label :pictures %>
+				<%= form.file_field :pictures, multiple: true, class: "form-control" %>
+				<%= form.hidden_field :user_id, value: @sub_category.user_id %>
+				<%= form.hidden_field :category_id, value: @sub_category.category_id  %><br>
+				<%= form.submit class: "btn btn-success" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=link_to "Back", user_category_sub_category_path(@sub_category.user_id, @sub_category.category_id, @sub_category), class: "btn btn-warning" %>
+			<%end%>
+			<script type="text/javascript">
+                  <%= render "validate.js" %>
+            </script>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

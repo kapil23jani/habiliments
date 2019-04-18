@@ -1,0 +1,55 @@
+<div class="container"><br><br>
+  <div class="row">
+    <% @products.each do |product|%>
+      <div class="col-sm-3">
+        <div class="card" style="width: 16rem;">
+          <div class="card-body">
+            <%=link_to image_tag(product.product_cover_pic, width: "210", height: "200"), user_category_sub_category_product_path(product.user_id, product.category_id, product.sub_category_id, product)%><br><br>
+            <center><h5 class="card-title"><%= link_to product.product_name, class: "nav-link" %></h5></center>
+          </div>
+          <%= link_to "Edit", edit_user_category_sub_category_product_path(product.user_id, product.category_id, product.sub_category_id, product), class: "btn btn-warning "%> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Delete", "#", class: "btn btn-danger "%>
+        </div>
+      </div>
+    <%end%>
+  </div> <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container"><br>
+	<div class="row">
+		<div class="col-sm-4">
+			<%= link_to "New Product", new_user_category_sub_category_product_path(@sub_category.user_id, @sub_category.category, @sub_category), class: "btn btn-secondary" %>
+
+			<%= link_to "Back", user_category_path(@sub_category.user_id, @sub_category.category), class: "btn btn-warning" %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

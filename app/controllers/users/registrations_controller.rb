@@ -1,18 +1,20 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
-
+  skip_before_action :require_no_authentication, :only => [ :new, :create, :cancel ]
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+    @profile = @user.build_sellerprofile
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.create(seller_params)
+    if @user.save
+      redirect_to welcomes_path(@user)
+    else
+      render 'new'
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -28,6 +30,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def destroy
   #   super
   # end
+
+  private
+
+  def seller_params
+    params.require(:user).permit(:email, :role, sellerprofile_attributes: [:name, :contact_no, :phone_no, :fax_no, :street1, :city, :state, :country, :zipcode, :trade_licence, :gst_no, :sales_tax])
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

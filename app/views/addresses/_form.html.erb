@@ -1,0 +1,31 @@
+<div class="container"><br>
+	<div class="row">
+		<div class="col-cm-6">
+			<%= form_for ([current_user, @address]) do |form|%>
+				<%= form.label :name %>
+				<%= form.text_field :name, class: "form-control" %><br>
+				<%= form.label :phone %>
+				<%= form.text_field :phone, class: "form-control"  %><br>
+				<%= form.label :street1 %>
+				<%= form.text_field :street1, class: "form-control"  %><br>
+				<%= form.label :landmark %>
+				<%= form.text_field :landmark, class: "form-control"  %><br>
+				<%= form.label :city %>
+				<%= form.text_field :city, class: "form-control"  %><br>
+				<%= form.label :state %>
+				<%= form.text_field :state, class: "form-control"  %><br>
+				<%= form.label :country %>
+				<%= form.text_field :country, class: "form-control"  %><br>
+				<%= form.label :zipcode %>
+				<%= form.text_field :zipcode, class: "form-control"  %><br>
+				<%= form.submit class: "btn btn-success"  %> 
+			<%end%>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+

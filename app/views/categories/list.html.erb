@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<table class="table">
+				<tr>
+					<th>Category Name</th>
+					<th>Edit</th>
+					<th>Delete</th>
+
+				</tr>
+				<% @categories.each do |category| %>
+					<tr>
+						<th><%= category.name %></th>
+						<th><%= link_to "Edit", edit_user_category_path(current_user, category) %></th>
+						<th><%= link_to "Delete", user_category_path(current_user, category), method: :delete %></th>
+					</tr>
+				<%end%>
+			</table>
+		</div>
+	</div>
+</div>
