@@ -1,0 +1,33 @@
+<div class="container"><br>
+  <div class="row">
+    <div class="col-sm-4" id="cover_picture">
+      <div class="cover_picture"><br>
+        <%= image_tag(@product.product_cover_pic, width: "320", height: "280") %>
+      </div><br><br>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+    <div class="col-sm-4">
+      <div class="product_details">
+        <span class="product_name"><b>Product Name</b> - <%= @product.product_name%><br><br></span>
+        <span class="product_brand"><b>Brand Name</b> - <%= @product.brand_name%><br><br></span>
+        <span class="product_material"><b>Material</b> - <%= @product.material %><br><br></span>
+        <span class="product_description"><b>Description</b> - <%= @product.description %> <br><br></span>
+        <span class="product_colour"><b>Colour</b> - <%= @product.colour %><br><br></span>
+        <span class="a-price-symbol">₹</span>&nbsp;
+        <span class= "product_price"> <%= @product.price %></span>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    	<div class="booking_div">
+    		<%= form_for @cart, remote: :true do |form| %>
+    			<%= form.hidden_field :amount, value: @product.price, class: "form-control" %><br>
+    			<%= form.hidden_field :product_id, value: @product.id, class: "form-control" %><br>
+    			<span>
+    				<%= form.submit "Add to Cart", class: "add_cart" %>
+    			</span><br><br><br>
+    		<%end%>
+    			<span class= "buy_now" ><%= link_to "Buy Now", "#" %></span>
+    	</div>
+    </div>
+  </div>
+
+</div>

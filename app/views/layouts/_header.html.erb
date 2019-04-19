@@ -18,6 +18,7 @@
 		      </ul>
 		      <ul class="navbar-nav">
 		        <% if current_user.present? %>
+		        	<%= link_to '<i class="fas fa-cart-arrow-down" style="font-size:20px"></i>'.html_safe, "#", class: "nav-link"%>
 		          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
 		        <%else%>
 		          <li><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
@@ -48,6 +49,7 @@
 		      </ul>
 		      <ul class="navbar-nav">
 		        <% if current_user.present? %>
+		        	<%= link_to '<i class="fas fa-cart-arrow-down" style="font-size:20px"></i>'.html_safe, "#", class: "nav-link"%>
 		          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
 		        <%else%>
 		          <li><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
@@ -77,6 +79,7 @@
 		      </ul>
 		      <ul class="navbar-nav">
 		        <% if current_user.present? %>
+		        	<%= link_to '<i class="fas fa-cart-arrow-down" style="font-size:20px"></i>'.html_safe, "#", class: "nav-link"%>
 		          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
 		        <%else%>
 		          <li><%= link_to 'Sign In', new_user_session_path, :class => "nav-link" %></li>
@@ -98,9 +101,7 @@
 	        </li>
 	      </ul>
 	      <ul class="navbar-nav">
-	        <% if current_user.present? %>
-	          <li><%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete, data: {confirm:"Are you Sure"} %></li>
-	        <%else%>
+	      	<%= link_to '<i class="fas fa-cart-arrow-down" style="font-size:20px"></i>'.html_safe, carts_path, class: "nav-link"%>
 	        	<li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          Registration
@@ -111,7 +112,6 @@
 			        </div>
 			      </li>
 	          <li><%= link_to 'Login', new_user_session_path, :class => "nav-link", data: {toggle: "modal", target: "#exampleModal"} %></li>
-	        <%end%>
 	      </ul>
 	    </div>
 	</nav>

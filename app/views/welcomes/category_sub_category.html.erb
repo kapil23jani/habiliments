@@ -1,0 +1,17 @@
+<div class="container"><br>
+	<div class="row">
+		<%@sub_category.each do |subcategory| %>
+			<div class="col-sm-4">
+				<div class="card" style="width: 18rem;">
+				  <%= link_to image_tag(subcategory.cover_pic, width: "285", height: "250"), product_path(subcategory.category_id, subcategory)%>
+				  <div class="card-body">
+				    <center><b><%= subcategory.sub_category_name %></b></center>
+				  </div>
+				</div>
+			</div>
+		<%end%>
+	</div>
+</div>
+
+
+	

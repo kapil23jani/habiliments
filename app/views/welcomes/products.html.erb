@@ -1,0 +1,16 @@
+<div class="container"><br>
+    <div class="row">
+        <% @products.each do |product|%>
+            <div class="col-sm-3" >&nbsp;&nbsp;&nbsp;
+                <div class="conpoment" id="product_div">
+                    <%= link_to image_tag(product.product_cover_pic, class: "cover_img", width: "255", height: "200"), product_description_path(product.id)%>    
+                </div>
+                <div class="product_details"><br>
+                    <span class="product_name"><%= product.product_name %><br></span>
+                    <span class="a-price-symbol">₹</span>&nbsp;
+                    <span class="product_price"><%= product.price%></span>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>

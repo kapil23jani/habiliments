@@ -1,1 +1,9 @@
-_form.html.erb
+<div ></div>
+<%= form_for ([current_user, @sub_category.category, @sub_category]) do |form| %>
+	<%= form.label :sub_category_name %>
+	<%= form.text_field :sub_category_name %>
+	<%= form.hidden_field :user_id, value: current_user.id%>
+	<%= form.label :cover_pic%>
+	<%= form.file_field :cover_pic %>
+	<%= form.submit class: "btn btn-success" %>
+<%end%>

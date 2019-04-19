@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_072338) do
+ActiveRecord::Schema.define(version: 2019_04_19_125054) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2019_04_18_072338) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_carts_on_product_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
@@ -67,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_04_18_072338) do
     t.integer "sub_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["sub_category_id"], name: "index_products_on_sub_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"

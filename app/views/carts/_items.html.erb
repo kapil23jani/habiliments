@@ -1,0 +1,7 @@
+<%@items.each do |item| %>
+	<tr>
+		<td> <%= image_tag(item.product.product_cover_pic, width: "100", height: "80")%> <b><%= link_to item.product.product_name, product_description_path(item.product_id)%></b>,&nbsp;&nbsp;(<%= item.product.brand_name%>,&nbsp;&nbsp;<%= item.product.material%>,&nbsp;&nbsp;<%= item.product.description%>,&nbsp;&nbsp;<%= item.product.colour%>)</td>
+		<td><b><%= item.product.price%></b></td>
+		<td><%#= link_to "Remove", cart_path(item), method: :delete %></td>
+	</tr>
+<%end%>

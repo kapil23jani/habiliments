@@ -4,3 +4,32 @@
   border-style: solid;
   border-width: thin;
 }
+
+#product_div{
+  box-shadow: 2px 2px #888888;
+}
+.product_price{
+  color: green;
+  font-size: 30px;
+}
+
+#product_price{
+  color: rgb(224, 255, 255);
+}
+
+
+.add_cart{
+  background: rgb(193, 252, 206);
+  padding: 10px 40px;
+  text-decoration: none;
+  border-radius: 10px;
+  color: black;
+}
+
+.buy_now{
+  background: rgb(193, 252, 206);
+  padding: 10px 50px;
+  text-decoration: none;
+  border-radius: 10px;
+  color: black;
+}
